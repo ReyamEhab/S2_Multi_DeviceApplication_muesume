@@ -1,0 +1,88 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility App SPA</title>
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+ 
+    <!-- Navigation Header -->
+    <div class="header">
+        <nav>
+            <!-- Links to different pages of the application -->
+            <a href="Home.html">HOME</a>
+            <a href="hijabs.html">HIJABS</a>
+            <a href="index.html">LOGIN</a>
+            <!-- Indicator for the active navigation link -->
+            <div id="indicator"></div>
+        </nav>
+    </div>
+ 
+    <!-- Signup Page -->
+    <div id="signup">
+        <!-- Container for the signup form -->
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            <!-- Input fields for the signup form -->
+            <input type="text" id="signup-name" placeholder="Enter your name" required>
+            <input type="email" id="signup-email" placeholder="Enter your email" required>
+            <input type="password" id="signup-password" placeholder="Enter your password" required>
+            <!-- Signup button -->
+            <button id="signup-btn">Sign Up</button>
+            <!-- Error message display -->
+            <p id="signup-error" style="color: red; display: none;">Please fill in all fields.</p>
+        </div>
+    </div>
+     
+    <script>
+        // Signup Functionality
+        document.getElementById('signup-btn').addEventListener('click', async () => {
+            // Retrieve user input values and trim unnecessary spaces
+            const name = document.getElementById('signup-name').value.trim();
+            const email = document.getElementById('signup-email').value.trim();
+            const password = document.getElementById('signup-password').value.trim();
+            const error = document.getElementById('signup-error');
+
+            // Validate that all fields are filled
+            if (name && email && password) {
+                try {
+                    // Send a POST request to the server to create a new user
+                    const response = await fetch('http://localhost:4002/api/user/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ name, email, password }),
+                    });
+
+                    // Parse the server's response
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        // On successful signup, show a success alert and switch to login view
+                        alert('Sign Up Successful! Redirecting to Login page...');
+                        error.style.display = 'none'; // Hide any previous error messages
+                        document.getElementById('signup').classList.add('hidden'); // Hide signup view
+                        document.getElementById('login').classList.remove('hidden'); // Show login view
+                    } else {
+                        // Display an error message from the server
+                        error.textContent = data.message || 'Sign Up Failed!';
+                        error.style.display = 'block';
+                    }
+                } catch (err) {
+                    // Handle network or server errors
+                    error.textContent = 'An error occurred. Please try again later.';
+                    error.style.display = 'block';
+                }
+            } else {
+                // Display an error message if any field is empty
+                error.textContent = 'All fields are required!';
+                error.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
