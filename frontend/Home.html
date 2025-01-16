@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Information -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Linking Stylesheets -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poller+One&family=Raleway:wght@500&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="imagegallery.css">     
+</head>
+<body>
+
+<!-- Pop-up Box for Subscription -->
+<div id="popupBox" class="popup">
+  <div class="popup-content">
+    <h2>Subscribe to Our Newsletter</h2>
+    <h3>Stay updated with the latest news and offers!</h3>
+    <form id="subscribeForm">
+      <input type="email" id="emailInput" placeholder="Enter your email" required>
+      <button type="submit" id="subscribeBtn">Subscribe</button>
+      <button type="button" id="closeBtn">Close</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  let popupShown = false;
+
+  document.addEventListener("mousemove", function () {
+    const popupBox = document.getElementById("popupBox");
+
+    // Show the pop-up box only once when mouse moves over the website
+    if (!popupShown) {
+      popupBox.style.display = "flex";
+      popupShown = true; // Ensure the pop-up is shown only once
+    }
+  });
+
+  // Close button functionality
+  document.getElementById("closeBtn").addEventListener("click", function () {
+    const popupBox = document.getElementById("popupBox");
+    popupBox.style.display = "none";
+  });
+
+  // Subscription form submission
+  document.getElementById("subscribeForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form from reloading the page
+
+    const popupBox = document.getElementById("popupBox");
+    const emailInput = document.getElementById("emailInput");
+
+    // Validate email (optional)
+    if (!emailInput.value.includes("@")) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    alert("Thank you for subscribing!");
+    popupBox.style.display = "none";
+  });
+</script>
+
+<!-- Loading Screen -->
+<div class="loading-screen">
+  <div class="spinner"></div>
+  <p>K H I M A R I Q U ...</p>
+</div>
+<script src="home.js"></script>
+
+<main>
+
+  <!-- Scrolling Marquee for Offers -->
+  <marquee id="gfg">
+    JOIN OUR EMAIL & SMS LIST FOR EARLY ACCESS TO THE BEST DEALS ⋆.˚   END OF THE YEAR SALE IS NOW: 25% OFF w/ code: NEWYEAR25 SHOP NOW ⋆.˚   Fast & Free Shipping on U.S. Orders Over $99 ⋆.˚   SHOP NOW AND PAY LATER W/ SHOP PAY OR AFTERPAY⋆.˚   JOIN OUR EMAIL & SMS LIST FOR EARLY ACCESS TO THE BEST DEALS ⋆.˚  END OF THE YEAR SALE IS NOW: 25% OFF w/ code: NEWYEAR25 SHOP NOW ⋆.˚   Fast & Free Shipping on U.S. Orders Over $99 ⋆.˚
+  </marquee>
+
+  <!-- Navigation Bar -->
+  <div class="header">
+    <nav>
+      <a href="Home.html">HOME</a>
+      <a href="hijabs.html">HIJABS</a>
+      <a href="index.html">LOGIN</a>
+      <div id="indicator"></div>
+    </nav>
+  </div>
+
+  <!-- Video Section for the First Page -->
+  <video class="firstpage-video" autoplay loop muted playsinline>
+    <source src="images/FIRST.mp4" type="video/mp4">
+  </video>
+
+  <!-- Shop the Sale Button -->
+  <button class="animated-button">
+    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+    </svg>
+    <a href="hijabs.html" style="text-decoration: none; color:black ;"><span class="text">SHOP THE SALE NOW</span></a>
+    <span class="circle"></span>
+    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+    </svg>
+  </button>
+
+  <!-- Section for Modesty-related Product Description -->
+  <div id="second">
+    <h2>
+      Modesty at the core of 
+      <span class="highlight">every design</span>
+    </h2>
+    <p>Khimars in Medina Silk or Khimars three mid-length veils, <br>Khimar pointed end, available in several models to wear with your jilbab or long dress.</p>
+    <h4>BEST SELLER</h4>
+  </div>
+
+  <!-- Image Gallery Slider -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="container-general">
+          <div class="gallery-wrap wrap-effect-1">
+            <div class="item" data-caption="Image 1 Caption"></div>
+            <div class="item" data-caption="Image 2 Caption"></div>
+            <div class="item" data-caption="Image 3 Caption"></div>
+            <div class="item" data-caption="Image 4 Caption"></div>
+            <div class="item" data-caption="Image 5 Caption"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Product Display -->
+  <div class="heading">
+    <h6> See what's new</h6>
+  </div>
+
+  <!-- Product Gallery Grid -->
+  <div class="gallery-container">
+    <!-- First Row of Products -->
+    <div class="hover14 row">
+      <div>
+        <figure>
+          <img src="images/imagegallery1.jpeg" alt="Gallery Image 1" />
+          <figcaption>Purple MEDINA SILK KHIMAR</figcaption>
+          <p class="description">€23.99</p>
+          <p style="color: #131313;"> ☆ ☆ ☆ ☆ ☆</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </figure>
+      </div>
+      <div>
+        <figure>
+          <img src="images/imagegallery2.jpeg" alt="Gallery Image 2" />
+          <figcaption>KHIMAR THREE VEILS KHAKI</figcaption>
+          <p class="description">€29.99</p>
+          <p style="color: #131313;"> ☆ ☆ ☆ ☆</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </figure>
+      </div>
+      <div>
+        <figure>
+          <img src="images/imagegallery3.jpeg" alt="Gallery Image 3" />
+          <figcaption>KHIMAR THREE VEILS KHAKI</figcaption>
+          <p class="description">€29.99</p>
+          <p style="color: #131313;"> ☆ ☆ ☆ ☆ ☆</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </figure>
+      </div>
+      <div>
+        <figure>
+          <img src="images/imagegallery4.jpeg" alt="Gallery Image 4" />
+          <figcaption>KHIMAR THREE VEILS KHAKI</figcaption>
+          <p class="description">€29.99</p>
+          <p style="color: #131313;"> ☆ ☆ ☆ ☆ ☆</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Second Row of Products -->
+    <div class="hover14 row">
+      <div>
+        <figure>
+          <img src="images/imagegallery5.jpeg" alt="Gallery Image 5" />
+          <figcaption>KHIMAR THREE VEILS KHAKI</figcaption>
+          <p class="description">€29.99</p>
+          <p style="color: #131313;"> ☆ ☆ ☆ ☆ ☆</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </figure>
+      </div>
+      <div>
+        <figure>
+          <img src="images/imagegallery6.jpeg" alt="Gallery Image 6" />
+          <figcaption>KHIMAR THREE VEILS KHAKI</figcaption>
+          <p class="description">€29.99</p>
+          <p style="color: #131313;"> ☆ ☆ ☆ ☆ ☆</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </figure>
+      </div>
+      <div>
+        <figure>
+          <img src="images/imagegallery7.jpeg" alt="Gallery Image 7" />
+          <figcaption>KHIMAR THREE VEILS KHAKI</figcaption>
+          <p class="description">€29.99</p>
+          <p style="color: #131313;"> ☆ ☆ ☆ ☆ ☆</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </figure>
+      </div>
+      <div>
+        <figure>
+          <img src="images/imagegallery8.jpeg" alt="Gallery Image 8" />
+          <figcaption>KHIMAR THREE VEILS KHAKI</figcaption>
+          <p class="description">€29.99</p>
+          <p style="color: #131313;"> ☆ ☆ ☆ ☆ ☆</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Page Video Section -->
+  <video class="secondepage-video" autoplay loop muted playsinline>
+    <source src="images/second.mp4" type="video/mp4">
+  </video>
+
+  <!-- Gallery for Additional Products -->
+  <div class="gallery-container1">
+    <!-- First Row -->
+    <div class="hover-row">
+      <div class="hover-item">
+        <figure>
+          <img src="images/secnde1.webp" alt="Gallery Image 1" />
+        </figure>
+      </div>
+      <div class="hover-item">
+        <figure>
+          <img src="images/seconde3.webp" alt="Gallery Image 2" />
+        </figure>
+      </div>
+      <div class="hover-item">
+        <figure>
+          <img src="images/seconde2.jpg" alt="Gallery Image 3" />
+        </figure>
+      </div>
+      <div class="hover-item">
+        <figure>
+          <img src="images/seconde4.webp" alt="Gallery Image 4" />
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final Product Gallery Row -->
+  <div class="gallery-row">
+    <div class="gallery-box">
+      <div class="image-content">
+        <img src="images-for-hijabs/image2.webp" alt="Gallery Image 1">
+        <div class="overlay-content">
+          <h3>Hijabs</h3>
+          <p>With a soft and comfortable headband that can be adjusted tighter or looser to give you the perfect fit for your comfort.</p>
+          <button class="explore-btn">Explore More</button>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-box">
+      <div class="image-content">
+        <img src="images/gallery-row2.jpg" alt="Gallery Image 2">
+        <div class="overlay-content">
+          <h3>Khimars</h3>
+          <p>Khimars in Medina Silk or Khimars three mid-length veils, Khimar pointed end, available in several models to wear with your jilbab or long dress.</p>
+          <a href="Khimar.html"><button class="explore-btn">Explore More</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-col">
+        <h4>company</h4>
+        <ul>
+          <li><a href="#">about us</a></li>
+          <li><a href="#">our services</a></li>
+          <li><a href="#">privacy policy</a></li>
+          <li><a href="#">affiliate program</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>get help</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">shipping</a></li>
+          <li><a href="#">returns</a></li>
+          <li><a href="#">order status</a></li>
+          <li><a href="#">payment options</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>online shop</h4>
+        <ul>
+          <li><a href="#">watch</a></li>
+          <li><a href="#">bag</a></li>
+          <li><a href="#">shoes</a></li>
+          <li><a href="#">dress</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>follow us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

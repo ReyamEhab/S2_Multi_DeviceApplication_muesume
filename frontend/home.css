@@ -1,0 +1,1025 @@
+html, body {
+  padding: 0; /* Remove default padding for a consistent layout */
+  width: 100%; /* Set the width to occupy the full viewport */
+  background-color: #f4f6fc; /* Light blue background for a clean look */
+  font-family: "Style Script", serif; /* Custom font for an elegant style */
+  background-size: cover; /* Ensure background images cover the entire area */
+  overflow-x: hidden; /* Prevent horizontal scrolling for better UX */
+}
+
+.popup {
+  display: none; /* Hide the popup initially */
+  position: fixed; /* Keep the popup in place relative to the viewport */
+  top: 0; /* Align the popup to the top of the viewport */
+  left: 0; /* Align the popup to the left of the viewport */
+  width: 100%; /* Make the popup cover the entire screen width */
+  height: 100%; /* Make the popup cover the entire screen height */
+  background-color: rgba(0, 0, 0, 0.5); /* Dimmed background for focus */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  z-index: 1000; /* Ensure the popup is above other content */
+}
+
+.popup-content {
+  background-image: url('images/popup-background.webp'); /* Use a background image */
+  background-size: cover; /* Ensure the image covers the entire content */
+  background-position: center; /* Center the image */
+  color: white; /* Set text color for contrast */
+  padding: 30px; /* Add padding for spacing */
+  text-align: center; /* Center align the text */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  width: 90%; /* Responsive width */
+  max-width: 400px; /* Set a maximum width for larger screens */
+}
+
+h2, h3 {
+  margin: 10px 0; /* Add vertical spacing around headings */
+  font-family: Arial, sans-serif; /* Simple and readable font */
+}
+
+input[type="email"] {
+  padding: 10px; /* Add padding for comfort */
+  margin: 10px 0; /* Add vertical spacing */
+  width: 80%; /* Set a responsive width */
+  border-radius: 5px; /* Rounded corners for a sleek look */
+  border: 1px solid #ccc; /* Subtle border for definition */
+}
+
+button {
+  padding: 10px 20px; /* Define button size */
+  background-color: #333; /* Dark background for contrast */
+  color: white; /* White text for visibility */
+  border: none; /* Remove border for a clean look */
+  border-radius: 5px; /* Rounded corners for design consistency */
+  cursor: pointer; /* Change cursor to indicate interactivity */
+  margin: 5px; /* Add spacing between buttons */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+button:hover {
+  background-color: #555; /* Slightly lighter background on hover */
+}
+
+body {
+  height: 100%; /* Occupy the full height of the viewport */
+  overflow-x: hidden; /* Disable horizontal scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling effect for better UX */
+}
+
+body::-webkit-scrollbar {
+  width: 12px; /* Define scrollbar width */
+  height: 12px; /* Define scrollbar height */
+}
+
+body::-webkit-scrollbar-track {
+  background: #f3e6f7; /* Light purple track color */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #bb86fc, #8d6e93); /* Gradient color */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  border: 2px solid #f3e6f7; /* Border for separation */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #8d6e93, #bb86fc); /* Reverse gradient */
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.8); /* Glow effect on hover */
+}
+
+body::-webkit-scrollbar-button {
+  display: none; /* Hide scrollbar buttons for a minimal design */
+}
+
+.loading-screen {
+  position: fixed; /* Ensure loading screen stays in place */
+  top: 0; /* Align to the top of the viewport */
+  left: 0; /* Align to the left of the viewport */
+  width: 100%; /* Cover the entire width */
+  height: 100%; /* Cover the entire height */
+  overflow: hidden; /* Prevent content overflow */
+  background-image: url("images/background.png"); /* Background for the loading screen */
+  background-repeat: no-repeat, repeat; /* Customize background repetition */
+  background-size: cover; /* Ensure the background covers the area */
+  color: #642b62; /* Text color for visibility */
+  display: flex; /* Use flex for alignment */
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center; /* Center elements horizontally */
+  align-items: center; /* Center elements vertically */
+  z-index: 1000; /* Place above other content */
+  opacity: 1; /* Fully visible initially */
+  transition: opacity 0.8s ease; /* Smooth fade-out effect */
+}
+
+.loading-screen.hidden {
+  opacity: 0; /* Fade out when hidden */
+  pointer-events: none; /* Disable interaction during fade-out */
+}
+
+.spinner {
+  width: 50px; /* Define spinner size */
+  height: 50px; /* Define spinner size */
+  border: 6px solid #642b62; /* Define spinner border */
+  border-top: 6px solid palevioletred; /* Accent color for the spinner */
+  border-radius: 50%; /* Circular shape */
+  animation: spin 1s linear infinite; /* Add spinning animation */
+  margin-bottom: 20px; /* Add spacing below */
+}
+
+@keyframes spin {
+  0% {
+     transform: rotate(0deg); /* Start rotation at 0 degrees */
+  }
+  100% {
+     transform: rotate(360deg); /* Complete one full rotation */
+  }
+}
+
+.hidden {
+  display: none; /* Hide content initially */
+}
+
+.header {
+  position: relative; /* Position relative for layout adjustments */
+  display: flex; /* Use flex for alignment */
+  justify-content: space-between; /* Space out items */
+  align-items: center; /* Align items vertically */
+  padding: 10px 20px; /* Add spacing around the header */
+  color: white; /* Text color for contrast */
+  font-size: 20px; /* Define font size */
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  margin-top: -4px; /* Adjust margin for alignment */
+}
+
+#gfg {
+  color: white; /* Define text color */
+  padding: 5px; /* Add padding for spacing */
+  background-color: #131313; /* Dark background for emphasis */
+  font-size: 37px; /* Larger font size for prominence */
+  font-family: "Style Script", serif; /* Elegant font style */
+  text-align: center; /* Center align the text */
+}
+
+.header nav {
+  position: absolute; /* Position nav absolutely */
+  top: 230%; /* Adjust vertical positioning */
+  left: -30%; /* Adjust horizontal positioning */
+  transform: translate(-50%, -50%); /* Center the nav */
+  display: flex; /* Use flex for layout */
+  justify-content: center; /* Center the content */
+  z-index: 1; /* Place behind the heading */
+}
+
+nav {
+  position: absolute; /* Position the nav absolutely */
+  padding: 10px; /* Add spacing around nav */
+  right: 0; /* Align to the right */
+  left: 0; /* Align to the left */
+  z-index: 10; /* Ensure it stays on top */
+  width: 319px; /* Define width */
+  font-family: "Style Script", serif; /* Use a custom font */
+  display: table; /* Use table layout for centering */
+  margin: 0 auto; /* Center the nav horizontally */
+}
+
+nav a {
+  /* Styling for navigation links */
+  position: relative;
+  display: table-cell;
+  text-align: center;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+nav a:before,
+nav a:after {
+  /* Adding decorative circles before and after navigation links */
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+}
+
+nav a:before {
+  /* Large circle styling */
+  top: 0;
+  left: 10px;
+  width: 6px;
+  height: 6px;
+}
+
+nav a:after {
+  /* Small circle styling */
+  top: 5px;
+  left: 18px;
+  width: 4px;
+  height: 4px;
+}
+
+nav a:nth-child(1):before {
+  /* Specific color for first nav link's large circle */
+  background-color: #5E686D;
+}
+
+nav a:nth-child(1):after {
+  /* Specific color for first nav link's small circle */
+  background-color: #fff;
+}
+
+nav a:nth-child(2):before {
+  /* Specific color for second nav link's large circle */
+  background-color: #5E686D;
+}
+
+nav a:nth-child(2):after {
+  /* Specific color for second nav link's small circle */
+  background-color: #fff;
+}
+
+nav a:nth-child(3):before {
+  /* Specific color for third nav link's large circle */
+  background-color: #5E686D;
+}
+
+nav a:nth-child(3):after {
+  /* Specific color for third nav link's small circle */
+  background-color: #fff;
+}
+
+#indicator {
+  /* Styling for the nav hover indicator */
+  position: absolute;
+  left: 5%;
+  bottom: 0;
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: 0.2s ease left;
+}
+
+nav a:hover {
+  /* Hover effect for navigation links */
+  color: #fff;
+}
+
+nav a:hover:before,
+nav a:hover:after {
+  /* Expand decorative circles on hover */
+  transform: scale(1);
+}
+
+nav a:nth-child(1):hover ~ #indicator {
+  /* Move and style the indicator for the first nav link */
+  left: 3%;
+  background: linear-gradient(130deg, #5E686D, #fff);
+}
+
+nav a:nth-child(2):hover ~ #indicator {
+  /* Move and style the indicator for the second nav link */
+  left: 40%;
+  background: linear-gradient(130deg, #5E686D, #fff);
+}
+
+nav a:nth-child(3):hover ~ #indicator {
+  /* Move and style the indicator for the third nav link */
+  left: 55%;
+  background: linear-gradient(130deg, #5E686D, #fff);
+}
+
+/* Responsive Styles */
+@media  (min-width: 1024px) and (max-width: 1150px) {
+  /* Adjust header and nav for medium-sized screens */
+  .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+  }
+
+  nav {
+      width: auto;
+      margin-left: 503px;
+  }
+
+  nav a {
+      font-size: 16px;
+      padding: 8px;
+  }
+}
+
+.firstpage-video {
+  /* Styling for the first page video */
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  margin-bottom: -19px;
+  margin-top: -21px;
+}
+@media  (min-width: 360px) and (max-width: 800px){
+  /* Adjust video for small screens */
+  .firstpage-video {
+      width: 98%;
+      height: 401px;
+      object-fit: cover;
+      margin-bottom: -19px;
+      margin-top: -21px;
+  }
+}
+@media  (min-width: 1024px) and (max-width: 1150px){
+  /* Center video for medium-sized screens */
+  .firstpage-video {
+      display: flex;
+      justify-content: center;
+      width: 100;
+  }
+}
+
+/* Responsive Adjustments for 360px and Below */
+@media  (min-width: 360px) and (max-width: 800px){
+  /* Adjust the header */
+  .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 8px 15px;
+  }
+
+  /* Make the logo smaller */
+  #gfg {
+      font-size: 14px; /* Smaller font size for logo */
+      padding: 3px;
+  }
+
+  /* Navigation links */
+  nav {
+      width: 41%; /* Full width for small screens */
+      padding: 5px 0;
+  }
+
+  nav a {
+      font-size: 10px; /* Smaller font size for navigation links */
+      width: 5px;
+  }
+
+  /* Adjust nav hover effects if needed */
+  nav a:hover {
+      font-size: 12px; /* Ensure hover doesn't enlarge too much */
+  }
+}
+
+/* Adjust positioning for 360px screens */
+@media (min-width: 360px) and (max-width: 800px) {
+  /* Center the animated button */
+  .animated-button {
+      margin: 0 auto;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 14px; /* Adjust font size for smaller screens */
+      padding: 12px 24px; /* Adjust padding */
+      margin-top: -153px;
+  }
+}
+
+/* Default styling for animated button */
+.animated-button {
+  /* Animated button appearance and layout */
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 36px;
+  margin-top: -180px;
+  left: 65%;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: black;
+  box-shadow: 0 0 0 2px black;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button svg {
+  /* Styling for SVG icons in the button */
+  position: absolute;
+  width: 24px;
+  fill: #8d6e93;
+  color: #8d6e93;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  /* Styling for the first arrow */
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  /* Styling for the second arrow */
+  left: -25%;
+}
+
+.animated-button .circle {
+  /* Styling for the expanding circle on hover */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #bb86fc;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  /* Styling for the button text */
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Hover and active states */
+.animated-button:hover {
+  /* Button hover effects */
+  box-shadow: 0 0 0 12px transparent;
+  color: #bb86fc;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  /* Move the first arrow on hover */
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  /* Move the second arrow on hover */
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  /* Move and change the text color on hover */
+  transform: translateX(12px);
+  color: #212121;
+}
+
+.animated-button:hover svg {
+  /* Change the icon color on hover */
+  fill: #212121;
+}
+
+.animated-button:active {
+  /* Button active state */
+  scale: 0.95;
+  box-shadow: 0 0 0 4px greenyellow;
+}
+
+.animated-button:hover .circle {
+  /* Expand the circle on hover */
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
+
+/* Video Styling */
+.secondepage-video {
+  width: 100%; /* Ensures the video takes up full width */
+  height: 620px; /* Sets the video height */
+  color: white; /* Sets the text color */
+  object-fit: cover; /* Maintains aspect ratio while filling the container */
+}
+
+@media (min-width: 360px) and (max-width: 800px) {
+  .secondepage-video {
+    display: flex; /* Centers content */
+    justify-content: center; /* Aligns content horizontally */
+    height: 228px; /* Adjusts height for smaller screens */
+  }
+}
+
+/* Shared Animation */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0; /* Starts fully transparent */
+    transform: translateX(-100px); /* Starts 100px off-screen to the left */
+  }
+  100% {
+    opacity: 1; /* Fully visible */
+    transform: translateX(0); /* Back to original position */
+  }
+}
+
+@keyframes highlightGrow {
+  0% {
+    width: 0; /* No width at the start */
+  }
+  100% {
+    width: 110%; /* Grows to 110% of its original size */
+  }
+}
+
+/* Container Styling */
+#second {
+  display: block; /* Ensures it behaves like a block element */
+  background-color: #bb86fc; /* Sets the background color */
+  color: #f4f6fc; /* Sets text color */
+  font-family: 'Arial', sans-serif; /* Defines font family */
+  font-size: 16px; /* Sets base font size */
+  text-align: center; /* Centers text */
+  margin-top: 137px; /* Adds space above */
+  padding: 20px; /* Adds padding inside the container */
+  overflow: hidden; /* Hides overflowing content */
+}
+
+/* H2 Styling */
+#second h2 {
+  font-size: 45px; /* Large font size for emphasis */
+  font-weight: bold; /* Makes the text bold */
+  color: #f4f6fc; /* Sets text color */
+  font-family: "Style Script", serif; /* Custom font for aesthetics */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds a shadow for depth */
+  position: relative; /* Allows for relative positioning */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* P Styling */
+#second p {
+  font-size: 25px; /* Medium font size */
+  color: #f4f6fc; /* Sets text color */
+  font-family: "Style Script", serif; /* Custom font for aesthetics */
+  line-height: 1.5; /* Improves readability */
+  margin: 10px 0; /* Adds space above and below */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds a shadow for depth */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* H4 Styling */
+#second h4 {
+  font-size: 45px; /* Large font size for emphasis */
+  color: #f4f6fc; /* Sets text color */
+  font-family: "Style Script", serif; /* Custom font for aesthetics */
+  line-height: 1.5; /* Improves readability */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds a shadow for depth */
+  margin-bottom: 3px; /* Adds space below */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Hover Effect for Shining Text */
+#second h2:hover,
+#second p:hover,
+#second h4:hover {
+  color: #d3d3d3; /* Light grey color for a glowing effect */
+  text-shadow: 
+    0 0 10px #d3d3d3, 
+    0 0 20px #d3d3d3, 
+    0 0 30px #d3d3d3, 
+    0 0 40px #d3d3d3; /* Creates a glowing effect */
+  transition: all 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+/* Heading Container */
+.heading {
+  margin-top: 16px; /* Adds space above */
+  padding: 0; /* Removes padding */
+  width: 100%; /* Full-width container */
+  overflow: hidden; /* Hides overflow */
+  background-image: url("images/seewhatsnew.png"); /* Adds a background image */
+  background-repeat: no-repeat; /* Prevents background repetition */
+  background-size: cover; /* Scales image to cover container */
+  background-position: center; /* Centers the background image */
+  height: 300px; /* Sets height for visibility */
+  transition: filter 0.5s ease-in-out; /* Smooth transition for hover effect */
+}
+
+/* Black and White Effect on Hover */
+.heading:hover {
+  filter: grayscale(100%); /* Applies grayscale filter */
+}
+
+/* H6 Styling */
+h6 {
+  font-size: 45px; /* Large font size for emphasis */
+  text-align: center; /* Centers the text */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds a shadow for depth */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+h6:hover {
+  text-shadow: 
+    0 0 10px #d3d3d3, 
+    0 0 20px #d3d3d3, 
+    0 0 30px #d3d3d3, 
+    0 0 40px #d3d3d3; /* Creates a glowing effect */
+  transition: all 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+/* Main Container Styling */
+.gallery-container {
+  background-color: #f4f6fc; /* Sets a light background color */
+  padding: 20px; /* Adds padding inside the container */
+}
+
+/* Row styling for four items per row */
+.hover14.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Space between items */
+  gap: 10px; /* Gap between columns */
+  margin-bottom: 70px; /* Space between rows */
+}
+
+.hover14.row div {
+  flex: 0 1 22%; /* Default to 4 items per row */
+  max-width: 22%; /* Ensure items stay within 4 columns */
+}
+
+/* Figure styling */
+figure {
+  width: 100%; /* Full width */
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background:  #f4f6fc;
+  overflow: hidden;
+  border: 1px solid #8d6e93; /* Optional border for better layout */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column; /* Align content vertically */
+  justify-content: space-between; /* Evenly distribute content */
+  height: 550px; /* Fixed height for all cards */
+}
+
+figure img {
+  width: 100%; /* Responsive image width */
+  height: 350px; /* Fixed height for images */
+  object-fit: cover; /* Crop images to fit without distortion */
+  border-bottom: 1px solid #ddd; /* Separate image from caption */
+  transition: transform 0.3s ease; /* Animation on hover */
+}
+
+/* Hover Effect */
+figure:hover {
+  transform: scale(1.05); /* Slightly enlarge the figure */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Increase shadow */
+}
+
+figure:hover img {
+  transform: scale(1.1); /* Enlarge the image slightly */
+}
+
+/* Caption and Description Styling */
+figcaption {
+  font-size: 16px; /* Caption font size */
+  font-weight: bold;
+  color: #131313;
+  margin: 10px 0;
+}
+
+.description {
+  font-size: 14px; /* Description font size */
+  color: #131313; /* Slightly lighter color */
+  margin: 10px 0;
+  padding: 0 10px; /* Padding for better readability */
+}
+
+/* Add to Cart Button Styling */
+.add-to-cart {
+  display: inline-block;
+  background-color: #8d6e93; /* Button color */
+  color: #131313; /* Text color */
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px; /* Space at the bottom */
+}
+
+.add-to-cart:hover {
+  background-color: #131313; /* Darker shade on hover */
+}
+
+/* Responsive design for screens between 360px and 539px */
+@media (max-width: 540px) {
+  .hover14.row div {
+    flex: 0 1 48%; /* 2 items per row */
+    max-width: 48%; /* Ensure items stay within 2 columns */
+  }
+
+  figure {
+    height: auto; /* Allow height to adjust based on content */
+  }
+
+  figure img {
+    height: 250px; /* Adjust image size for smaller screens */
+  }
+
+  .add-to-cart {
+    padding: 6px 12px; /* Smaller button size */
+  }
+}
+ 
+/* Main container for the gallery */
+.gallery-container1 {
+  padding: 20px; /* Space inside the container */
+  min-height: 35vh; /* Minimum height for the container */
+  display: flex; /* Flexbox layout */
+  background-color: #f4f6fc; /* Light background color */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+}
+
+/* Responsive styling for gallery container on tablets */
+@media (min-width: 720px) and (max-width: 1023px) {
+  .gallery-container1 {
+    height: 198px; /* Fixed height for medium screens */
+    margin-top: 200px; /* Extra top margin */
+  }
+}
+
+/* Row styling for hover items */
+.hover-row {
+  display: flex; /* Flexbox layout */
+  height: 372px; /* Fixed height */
+  justify-content: space-between; /* Space between items */
+  margin-bottom: 40px; /* Space below the row */
+}
+
+/* Responsive height adjustments for hover row */
+@media (max-width: 1024px) {
+  .hover-row {
+    height: 189px; /* Adjusted height for smaller screens */
+  }
+}
+@media (min-width: 720px) and (max-width: 1023px) {
+  .hover-row {
+    height: 201px; /* Height for medium screens */
+    margin-top: -178px; /* Adjusted top margin */
+  }
+}
+@media (max-width: 540px) {
+  .hover-row {
+    height: 90px; /* Reduced height for small screens */
+  }
+}
+@media (max-width: 360px) {
+  .hover-row {
+    height: 83px; /* Minimal height for very small screens */
+  }
+}
+
+/* Styling for individual hover items */
+.hover-item {
+  flex: 1; /* Flexible sizing */
+  margin: 0 10px; /* Space between items */
+  max-width: 22%; /* Maximum width for each item */
+  position: relative; /* Relative positioning for pseudo-elements */
+  overflow: hidden; /* Hide overflow content */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Images within hover items */
+.hover-item img {
+  width: 100%; /* Full width of the parent */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Block-level element */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth hover animations */
+}
+
+/* Hover effects for individual items */
+.hover-item:hover {
+  transform: scale(1.05); /* Slightly enlarge the item */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+.hover-item:hover img {
+  transform: scale(1.1); /* Slightly zoom the image */
+  opacity: 0.8; /* Add a fade effect */
+}
+
+/* Unique hover animation using a sliding pseudo-element */
+.hover-item::after {
+  content: ""; /* Empty pseudo-element */
+  position: absolute; /* Positioned relative to parent */
+  top: 0; /* Align to top */
+  left: -100%; /* Start off-screen */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background: rgba(255, 255, 255, 0.3); /* Light overlay */
+  transform: skewX(-30deg); /* Skew effect */
+  transition: left 0.5s ease; /* Smooth sliding animation */
+}
+
+.hover-item:hover::after {
+  left: 100%; /* Slide across the item */
+}
+
+/* Main row container */
+.gallery-row {
+  background-color: #f4f6fc; /* Light background */
+  display: flex; /* Flexbox layout */
+  justify-content: space-between; /* Space between items */
+  gap: 20px; /* Gap between items */
+  padding: 20px; /* Inner padding */
+  align-items: center; /* Center items vertically */
+}
+
+/* Individual gallery boxes */
+.gallery-box {
+  flex: 1; /* Flexible sizing */
+  position: relative; /* Relative positioning for child elements */
+  overflow: hidden; /* Hide overflow content */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth transitions */
+}
+
+/* Content wrapper inside gallery boxes */
+.image-content {
+  position: relative; /* Relative positioning */
+  transition: transform 0.4s ease; /* Smooth transform animation */
+}
+
+/* Images inside gallery boxes */
+.gallery-box img {
+  width: 100%; /* Full width of parent */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Block-level element */
+  border-radius: 10px; /* Rounded corners */
+  transition: transform 0.4s ease, opacity 0.4s ease; /* Smooth transitions */
+}
+
+/* Overlay content displayed on hover */
+.overlay-content {
+  position: absolute; /* Positioned over parent */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%) scale(0.8); /* Initial scaling and centering */
+  text-align: center; /* Center text */
+  opacity: 0; /* Initially hidden */
+  color: white; /* White text */
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+  padding: 20px; /* Inner padding */
+  border-radius: 10px; /* Rounded corners */
+  transition: transform 0.4s ease, opacity 0.4s ease; /* Smooth hover effects */
+}
+
+/* Explore button styling */
+.explore-btn {
+  background-color: #131313; /* Dark background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Button padding */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 14px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.explore-btn:hover {
+  background-color: black; /* Darker shade on hover */
+  transform: scale(1.1); /* Slight enlargement on hover */
+}
+
+/* Hover effects for gallery boxes */
+.gallery-box:hover .image-content {
+  transform: scale(1.05); /* Slightly zoom content */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+.gallery-box:hover img {
+  transform: scale(1.1); /* Slight zoom on images */
+  opacity: 0.6; /* Fade effect */
+}
+
+.gallery-box:hover .overlay-content {
+  transform: translate(-50%, -50%) scale(1); /* Full size on hover */
+  opacity: 1; /* Fully visible */
+}
+
+/* Importing Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Main container styling */
+.container {
+  max-width: 1170px; /* Set maximum width */
+  margin: auto; /* Center align the container */
+}
+
+/* Row layout using Flexbox */
+.row {
+  display: flex; /* Flexbox layout */
+  flex-wrap: wrap; /* Allow wrapping of items */
+}
+
+/* Remove default list styling */
+ul {
+  list-style: none; /* Remove bullet points from lists */
+}
+
+/* Footer section styling */
+.footer {
+  background-color: #24262b; /* Dark background color */
+  padding: 70px 0; /* Vertical padding for spacing */
+}
+
+/* Footer column styling */
+.footer-col {
+  width: 22%; /* Fixed width for each footer column */
+  padding: 0 15px; /* Padding for spacing within columns */
+}
+
+/* Footer heading styling */
+.footer-col h4 {
+  font-size: 18px; /* Font size for headings */
+  color: #ffffff; /* White text color */
+  text-transform: capitalize; /* Capitalize the text */
+  margin-bottom: 35px; /* Space below the heading */
+  font-weight: 500; /* Set font weight */
+  position: relative; /* For positioning pseudo-element */
+}
+
+/* Footer heading underline styling */
+.footer-col h4::before {
+  content: ''; /* Empty content for pseudo-element */
+  position: absolute; /* Position it absolutely */
+  left: 0; /* Align to left */
+  bottom: -10px; /* Position below the heading */
+  background-color: #e91e63; /* Pink underline */
+  height: 2px; /* Height of the line */
+  box-sizing: border-box; /* Include padding in width calculation */
+  width: 50px; /* Set width for the line */
+}
+
+/* List items in footer column (except the last item) */
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px; /* Space below list items */
+}
+
+/* Footer links styling */
+.footer-col ul li a {
+  font-size: 16px; /* Font size for links */
+  text-transform: capitalize; /* Capitalize the text */
+  color: #ffffff; /* White color for links */
+  text-decoration: none; /* Remove underline from links */
+  font-weight: 300; /* Light font weight */
+  color: #bbbbbb; /* Light gray color for links */
+  display: block; /* Make the link a block element */
+  transition: all 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover effect for footer links */
+.footer-col ul li a:hover {
+  color: #ffffff; /* Change color to white on hover */
+  padding-left: 8px; /* Add padding to the left on hover */
+}
+
+/* Social media link styling */
+.footer-col .social-links a {
+  display: inline-block; /* Align links inline */
+  height: 40px; /* Set height */
+  width: 40px; /* Set width */
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  margin: 0 10px 10px 0; /* Margin for spacing between social icons */
+  text-align: center; /* Center align text (icon) */
+  line-height: 40px; /* Center text vertically */
+  border-radius: 50%; /* Circular shape */
+  color: #ffffff; /* White color for icons */
+  transition: all 0.5s ease; /* Smooth transition effect */
+}
+
+/* Hover effect for social media links */
+.footer-col .social-links a:hover {
+  color: #24262b; /* Change color to dark background color on hover */
+  background-color: #ffffff; /* Change background to white */
+}
+
+/* Responsive styling for screens smaller than 767px */
+@media(max-width: 767px) {
+  .footer-col {
+    width: 50%; /* Set columns to 50% width */
+    margin-bottom: 30px; /* Add space below columns */
+  }
+}
+
+/* Responsive styling for screens smaller than 574px */
+@media(max-width: 574px) {
+  .footer-col {
+    width: 100%; /* Set columns to 100% width */
+  }
+}

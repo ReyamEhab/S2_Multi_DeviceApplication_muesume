@@ -1,0 +1,844 @@
+/* General styling for the html and body elements */
+html, body {
+  padding: 0; /* Removes default padding */
+  width: 100%; /* Sets body width to 100% of the viewport */
+  background-color: #f4f6fc; /* Light blue background */
+  font-family: "Style Script", serif; /* Applies custom font */
+  background-size: cover; /* Ensures background image covers the entire viewport */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Additional styling for the body to enable scrolling */
+body {
+  height: 100%; /* Ensures the body spans the full height of the viewport */
+  overflow-x: hidden; /* Disables horizontal scrolling */
+  overflow-y: auto; /* Enables vertical scrolling */
+  scroll-behavior: smooth; /* Adds smooth scrolling effect */
+}
+
+/* Custom scrollbar styles */
+body::-webkit-scrollbar {
+  width: 12px; /* Sets width for vertical scrollbar */
+  height: 12px; /* Sets height for horizontal scrollbar */
+}
+
+/* Styling the scrollbar track */
+body::-webkit-scrollbar-track {
+  background: #f3e6f7; /* Light purple background */
+  border-radius: 10px; /* Adds rounded corners */
+}
+
+/* Styling the scrollbar thumb */
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #bb86fc, #8d6e93); /* Gradient purple effect */
+  border-radius: 10px; /* Adds rounded corners */
+  border: 2px solid #f3e6f7; /* Creates a border for contrast */
+}
+
+/* Hover effect for the scrollbar thumb */
+body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #8d6e93, #bb86fc); /* Reverses the gradient on hover */
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.8); /* Adds a glow effect */
+}
+
+/* Hides scrollbar buttons */
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Styling for the header section */
+.header {
+  position: relative; /* Positions header relative to its container */
+  display: flex; /* Makes header items flexible */
+  justify-content: space-between; /* Spaces out elements evenly */
+  align-items: center; /* Aligns items vertically in the center */
+  padding: 10px 20px; /* Adds padding around the header */
+  color: white; /* Sets text color to white */
+  font-size: 20px; /* Default font size */
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  margin-top: -4px; /* Adjusts positioning */
+}
+
+/* Styling for a specific element with id 'gfg' */
+#gfg {
+  color: white; /* Text color */
+  padding: 5px; /* Adds spacing inside the element */
+  background-color: #131313; /* Dark background color */
+  font-size: 37px; /* Larger font size */
+  font-family: "Style Script", serif; /* Custom font */
+  text-align: center; /* Centers the text */
+}
+
+/* Navigation bar inside the header */
+.header nav {
+  position: absolute; /* Positions nav absolutely within the header */
+  top: 230%; /* Positions nav vertically behind the text */
+  left: 80%; /* Positions nav horizontally */
+  transform: translate(-50%, -50%); /* Centers the nav based on its position */
+  display: flex; /* Makes navigation items flexible */
+  justify-content: center; /* Centers navigation items */
+  z-index: 1; /* Places nav behind other elements */
+}
+
+/* General navigation styles */
+nav {
+  position: absolute; /* Positions nav absolutely */
+  padding: 10px; /* Adds padding */
+  right: 0; /* Aligns nav to the right */
+  left: 0; /* Aligns nav to the left */
+  z-index: 10; /* Ensures nav appears above other elements */
+  width: 319px; /* Fixed width for the nav */
+  font-family: "Style Script", serif; /* Custom font */
+  display: table; /* Displays nav as a table */
+  margin: 0 auto; /* Centers nav horizontally */
+}
+
+/* Styling for navigation links */
+nav a {
+  position: relative; /* Positions elements within their container */
+  display: table-cell; /* Allows text alignment */
+  text-align: center; /* Centers text within the link */
+  font-size: 20px; /* Sets font size */
+  color: black; /* Text color */
+  text-decoration: none; /* Removes underline */
+  font-weight: bold; /* Makes text bold */
+  padding: 10px 20px; /* Adds spacing inside links */
+}
+
+/* Adding decorative elements before and after links */
+nav a:before, nav a:after {
+  content: ""; /* Empty content for styling purposes */
+  position: absolute; /* Absolute positioning */
+  border-radius: 50%; /* Circular shape */
+  transform: scale(0); /* Initially hides elements */
+}
+
+/* Styling for decorative circles before links */
+nav a:before {
+  top: 0; /* Positions circle at the top */
+  left: 10px; /* Adds spacing from the left */
+  width: 6px; /* Sets width */
+  height: 6px; /* Sets height */
+}
+
+/* Styling for decorative circles after links */
+nav a:after {
+  top: 5px; /* Adds spacing from the top */
+  left: 18px; /* Adds spacing from the left */
+  width: 4px; /* Smaller width for after element */
+  height: 4px; /* Smaller height for after element */
+}
+
+/* Specific colors for the circles of each navigation link */
+nav a:nth-child(1):before, nav a:nth-child(2):before, nav a:nth-child(3):before {
+  background-color: #5E686D; /* Grey color */
+}
+
+nav a:nth-child(1):after, nav a:nth-child(2):after, nav a:nth-child(3):after {
+  background-color: #fff; /* White color */
+}
+
+/* Indicator styling for active link */
+#indicator {
+  position: absolute; /* Absolute positioning */
+  left: 5%; /* Default left alignment */
+  bottom: 0; /* Positioned at the bottom */
+  width: 30px; /* Fixed width */
+  height: 3px; /* Fixed height */
+  background-color: #fff; /* White background */
+  border-radius: 5px; /* Rounded corners */
+  transition: 0.2s ease left; /* Smooth transition effect */
+}
+
+/* Hover effects for links */
+nav a:hover {
+  color: #fff; /* Changes text color to white */
+}
+
+nav a:hover:before, nav a:hover:after {
+  transform: scale(1); /* Enlarges circles on hover */
+}
+
+/* Changes indicator position and gradient on hover */
+nav a:nth-child(1):hover ~ #indicator {
+  left: 3%;
+  background: linear-gradient(130deg, #5E686D, #fff); /* Gradient effect */
+}
+
+nav a:nth-child(2):hover ~ #indicator {
+  left: 40%;
+  background: linear-gradient(130deg, #5E686D, #fff);
+}
+
+nav a:nth-child(3):hover ~ #indicator {
+  left: 55%;
+  background: linear-gradient(130deg, #5E686D, #fff);
+}
+
+/* Responsive styles for medium-sized screens */
+@media (min-width: 1024px) and (max-width: 1326px) {
+  .header {
+    flex-direction: column; /* Stacks header items vertically */
+    align-items: flex-start; /* Aligns items to the left */
+    padding: 10px; /* Adjusts padding */
+  }
+
+  nav {
+    width: auto; /* Adapts width to content */
+    margin-left: 42px; /* Adjusts left margin */
+  }
+
+  nav a {
+    font-size: 16px; /* Reduces font size */
+    padding: 8px; /* Reduces padding */
+  }
+}
+
+ /* Indicator styles for the navigation slider */
+#indicator {
+  position: absolute; /* Position the indicator absolutely */
+  left: 5%; /* Start the indicator from 5% of the width */
+  bottom: 0; /* Position it at the bottom */
+  width: 30px; /* Width of the indicator */
+  height: 3px; /* Height of the indicator */
+  background-color: #fff; /* White color for the indicator */
+  border-radius: 5px; /* Rounded corners for the indicator */
+  transition: 0.2s ease left; /* Smooth transition for moving the indicator */
+}
+
+/* Styling for the first-page video */
+.firstpage-video {
+  width: 100%; /* Full width of the container */
+  height: 680px; /* Fixed height */
+  object-fit: cover; /* Ensure the video covers the entire container */
+  margin-bottom: -19px; /* Negative margin to adjust position */
+  margin-top: -21px; /* Negative margin to adjust position */
+}
+
+/* Media query for small screens between 360px and 800px */
+@media (min-width: 360px) and (max-width: 800px) {
+  /* Adjust video size for smaller screens */
+  .firstpage-video {
+    width: 98%; /* Reduce width slightly */
+    height: 340px; /* Adjust height */
+    margin-bottom: -19px;
+    margin-top: -21px;
+  }
+  
+  /* Responsive header for small screens */
+  .header {
+    flex-direction: column; /* Stack header elements vertically */
+    align-items: flex-start; /* Align items to the start */
+    padding: 8px 15px; /* Adjust padding */
+    margin-left: -117px; /* Adjust left margin */
+  }
+
+  /* Smaller font size for logo */
+  #gfg {
+    font-size: 14px; /* Smaller logo font */
+    padding: 3px; /* Adjust padding */
+  }
+
+  /* Navigation adjustments */
+  nav {
+    width: 100%; /* Full width of the screen */
+    padding: 5px 0; /* Adjust padding */
+  }
+
+  nav a {
+    font-size: 10px; /* Smaller font size for links */
+    width: 6px; /* Adjust width of links */
+  }
+
+  nav a:hover {
+    font-size: 12px; /* Ensure hover effect doesn't enlarge too much */
+  }
+
+  /* Reposition the indicator for small screens */
+  #indicator {
+    position: absolute;
+    left: 39%; /* Adjust position */
+    bottom: 0;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: 0.2s ease left;
+  }
+}
+
+/* Gallery layout with 3 cards per row */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+  gap: 20px; /* Spacing between items */
+  padding: 20px; /* Padding around the gallery */
+  margin-top: 10%; /* Add some space from the top */
+}
+
+/* Card styling within the gallery */
+.card {
+  background: #fff; /* White background for cards */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow around the card */
+  text-align: center; /* Center-align text */
+  padding: 15px; /* Padding inside each card */
+}
+
+
+/* Styling for images inside cards */
+.card img {
+  width: 100%; /* Make image fill the full width of the card */
+  height: auto; /* Keep the image's aspect ratio */
+  border-radius: 8px; /* Rounded corners for the image */
+  transition: transform 0.3s ease; /* Smooth transition for scaling the image */
+}
+
+/* Hover effect on the card: slightly enlarges the card and adds shadow */
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Add shadow around the card */
+}
+
+/* Hover effect on the image: enlarge the image slightly */
+.card:hover img {
+  transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
+
+/* Styling for the card's heading */
+.card h3 {
+  margin: 10px 0; /* Vertical margin around the heading */
+  font-size: 1.2em; /* Slightly larger font size for the heading */
+}
+
+/* Styling for the paragraph inside the card */
+.card p {
+  color: #555; /* Dark gray text color for readability */
+  margin: 5px 0; /* Vertical margin around the paragraph */
+}
+
+/* Styling for the buttons inside the card */
+.card button {
+  margin: 5px; /* Small margin around the button */
+  padding: 10px 15px; /* Padding inside the button */
+  border: none; /* No border around the button */
+  border-radius: 5px; /* Rounded corners for the button */
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  font-size: 1em; /* Standard font size for the button text */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Hover effect for the button: change background color and text color */
+.card button:hover {
+  background-color: #4CAF50; /* Green background on hover */
+  color: #fff; /* White text on hover */
+}
+
+/* Styling for the login button outside the card */
+.login-button {
+  margin-top: 20px; /* Add margin at the top */
+  padding: 10px 20px; /* Padding inside the button */
+  background-color: #007BFF; /* Blue background */
+  color: #fff; /* White text color */
+  border: none; /* No border around the button */
+  border-radius: 5px; /* Rounded corners for the button */
+  cursor: pointer; /* Change cursor to pointer */
+  font-size: 1em; /* Standard font size for the button */
+  text-decoration: none; /* Remove underline from the button (if it's a link) */
+}
+
+/* Hover effect for the login button: change background color */
+.login-button:hover {
+  background-color: #0056b3; /* Darker blue background on hover */
+}
+
+/* Styling for the popup window */
+.popup {
+  position: fixed; /* Fixed position on screen */
+  top: 50%; /* Centered vertically */
+  left: 50%; /* Centered horizontally */
+  transform: translate(-50%, -50%); /* Adjust the positioning to truly center */
+  background: #fff; /* White background for the popup */
+  padding: 20px; /* Padding inside the popup */
+  border-radius: 10px; /* Rounded corners for the popup */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow around the popup */
+  text-align: center; /* Center text inside the popup */
+  display: none; /* Initially hidden */
+  z-index: 1000; /* Ensure the popup appears on top of other elements */
+}
+
+/* Overlay behind the popup */
+.overlay {
+  position: fixed; /* Fixed position on screen */
+  top: 0; /* Position at the top */
+  left: 0; /* Position at the left */
+  width: 100%; /* Full width of the screen */
+  height: 100%; /* Full height of the screen */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: none; /* Initially hidden */
+  z-index: 999; /* Positioned below the popup but above other content */
+}
+
+/* Responsive adjustments for screen sizes smaller than 720px */
+@media (max-width: 720px) {
+  /* Gallery grid with 2 cards per row on small screens */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: 20px; /* Spacing between cards */
+    padding: 20px; /* Padding around the gallery */
+  }
+
+  /* Styling for cards in the gallery */
+  .card {
+    background: #fff; /* White background */
+    border: 1px solid #ddd; /* Light border around the card */
+    border-radius: 8px; /* Rounded corners for the card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */
+    text-align: center; /* Center-align text in the card */
+    padding: 15px; /* Padding inside the card */
+  }
+
+  /* Adjust image size within the card for smaller screens */
+  .card img {
+    width: 95%; /* Slightly smaller image width */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 8px; /* Rounded corners for the image */
+  }
+}
+
+    
+ /* Styling for card headings (h3) */
+.card h3 {
+  margin: 10px 0; /* Vertical spacing around the heading */
+  font-size: 1.2em; /* Slightly larger font size for the heading */
+}
+
+/* Styling for paragraphs inside the cards */
+.card p {
+  color: #555; /* Dark gray color for the paragraph text */
+  margin: 5px 0; /* Vertical spacing around the paragraph */
+}
+
+/* Styling for buttons inside the cards */
+.card button {
+  margin: 5px; /* Small margin around the button */
+  padding: 10px 15px; /* Padding inside the button */
+  border: none; /* No border around the button */
+  border-radius: 5px; /* Rounded corners for the button */
+  cursor: pointer; /* Pointer cursor when hovering over the button */
+  font-size: 1em; /* Standard font size for the button text */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Hover effect for the button: change background color and text color */
+.card button:hover {
+  background-color: #4CAF50; /* Green background color on hover */
+  color: #fff; /* White text on hover */
+}
+
+/* Closing brace for earlier block - potential issue */
+
+/* Media query for larger screens (1024px and above) */
+@media (min-width: 1024px) {
+  /* Gallery layout with 3 cards per row on larger screens */
+  .gallery {
+      grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  }
+}
+
+/* Media query for screens up to 360px */
+@media (max-width: 360px) {
+  /* Gallery layout with a single card per row on very small screens */
+  .gallery {
+      grid-template-columns: 1fr; /* Single card per row */
+      gap: 15px; /* Smaller gap between cards */
+  }
+
+  /* Card width adjusted for smaller screens */
+  .card {
+      width: 97%; /* Full width for the card */
+  }
+
+  /* Adjust font size for heading in cards */
+  .card h3 {
+      font-size: 1em; /* Smaller font size for heading */
+  }
+
+  /* Adjust font size for paragraphs in cards */
+  .card p {
+      font-size: 0.9em; /* Smaller font size for paragraph text */
+  }
+
+  /* Adjust font size for buttons in cards */
+  .card button {
+      font-size: 0.9em; /* Smaller font size for button */
+  }
+}
+
+/* Styling for the second-page video */
+#secondpage-video {
+  margin-top: 60px; /* Margin at the top of the video */
+  width: 100%; /* Full width for the video */
+  height: 600px; /* Set height for the video */
+  color: white; /* White color for text (if applicable) */
+  object-fit: cover; /* Cover the area while maintaining aspect ratio */
+}
+
+/* Media query for smaller screens (360px to 800px) for the second-page video */
+@media (min-width: 360px) and (max-width: 800px) {
+  /* Adjust second-page video size for smaller screens */
+  #secondpage-video {
+      width: 98%; /* Slightly smaller width for video */
+      height: 273px; /* Smaller height for video */
+      object-fit: cover; /* Keep object-fit cover */
+      margin-bottom: -19px; /* Adjust margin */
+      margin-top: -21px; /* Adjust margin */
+  }
+}
+
+/* Keyframe animation for glitch effect on images */
+@keyframes glitch-effect {
+  0% {
+      clip-path: inset(0 0 95% 0); /* Clip top 95% of the image */
+      transform: translate(-3px, -3px); /* Slight translation */
+  }
+  20% {
+      clip-path: inset(5% 0 90% 0); /* Clip top 90% of the image */
+      transform: translate(3px, 3px); /* Slight translation */
+  }
+  40% {
+      clip-path: inset(15% 0 70% 0); /* Clip top 70% of the image */
+      transform: translate(-3px, 3px); /* Slight translation */
+  }
+  60% {
+      clip-path: inset(25% 0 50% 0); /* Clip top 50% of the image */
+      transform: translate(3px, -3px); /* Slight translation */
+  }
+  80% {
+      clip-path: inset(10% 0 30% 0); /* Clip top 30% of the image */
+      transform: translate(-3px, -3px); /* Slight translation */
+  }
+  100% {
+      clip-path: inset(0 0 0 0); /* Reveal the whole image */
+      transform: translate(0, 0); /* Reset translation */
+  }
+}
+
+/* Keyframe animation for fade-in effect after glitch */
+@keyframes fade-in {
+  0% {
+      opacity: 0; /* Initially invisible */
+  }
+  100% {
+      opacity: 1; /* Fully visible after fade-in */
+  }
+}
+
+/* Glitch effect layers: pseudo-elements before and after */
+.firstpage-image::before,
+.firstpage-image::after {
+  content: ''; /* Empty content for the pseudo-elements */
+  position: absolute; /* Absolute positioning relative to the parent */
+  top: 0; /* Align at the top */
+  left: 0; /* Align at the left */
+  width: 100%; /* Full width of the parent */
+  height: 100%; /* Full height of the parent */
+  background: url('images-for-newpage/FIRST.png') no-repeat center center; /* Background image */
+  background-size: cover; /* Cover the element with the background image */
+  opacity: 0.7; /* Slight transparency for the glitch effect */
+  mix-blend-mode: screen; /* Blend the image with the underlying content */
+  animation: glitch-layer 2s infinite; /* Apply the glitch animation */
+}
+
+/* Reverse animation for the first pseudo-element */
+.firstpage-image::before {
+  animation: glitch-layer 2s infinite alternate-reverse; /* Reversed glitch animation */
+}
+
+/* Apply glitch animation for the second pseudo-element */
+.firstpage-image::after {
+  animation: glitch-layer 2s infinite alternate; /* Standard glitch animation */
+}
+
+/* Keyframe animation for glitch layers */
+@keyframes glitch-layer {
+  0% {
+      clip-path: inset(10% 0 90% 0); /* Clip the top 90% of the image */
+      transform: translate(-2px, -2px); /* Slight translation */
+  }
+  25% {
+      clip-path: inset(30% 0 70% 0); /* Clip the top 70% of the image */
+      transform: translate(2px, 2px); /* Slight translation */
+  }
+  50% {
+      clip-path: inset(50% 0 50% 0); /* Clip the top 50% of the image */
+      transform: translate(-2px, 2px); /* Slight translation */
+  }
+  75% {
+      clip-path: inset(70% 0 30% 0); /* Clip the top 30% of the image */
+      transform: translate(2px, -2px); /* Slight translation */
+  }
+  100% {
+      clip-path: inset(0 0 0 0); /* Reveal the full image */
+      transform: translate(0, 0); /* Reset translation */
+  }
+}
+
+/* Ensure the glitch layers stay in place after animation */
+.firstpage-image::before,
+.firstpage-image::after {
+  animation-fill-mode: forwards; /* Preserve the last state after animation */
+}
+
+/* Styling for gallery container with horizontal scroll */
+.gallery1 {
+  display: flex; /* Flexbox layout for horizontal alignment */
+  justify-content: space-evenly; /* Evenly space items horizontally */
+  align-items: center; /* Vertically center items */
+  gap: 20px; /* Space between gallery items */
+  padding: 20px; /* Padding around the gallery */
+  flex-wrap: nowrap; /* Ensure items stay in a single row */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  scroll-behavior: smooth; /* Smooth horizontal scrolling */
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on touch devices */
+}
+
+/* Styling for the custom scrollbar */
+.gallery1::-webkit-scrollbar {
+  height: 10px; /* Adjust the height of the scrollbar */
+}
+
+/* Custom scrollbar thumb (the draggable part) */
+.gallery1::-webkit-scrollbar-thumb {
+  background-color: #f4f6fc; /* Thumb color */
+  border-radius: 5px; /* Rounded edges for the thumb */
+}
+
+/* Hover effect on scrollbar thumb */
+.gallery1::-webkit-scrollbar-thumb:hover {
+  background-color: #f4f6fc; /* Darken the thumb on hover */
+}
+
+/* Custom scrollbar track (the background of the scrollbar) */
+.gallery1::-webkit-scrollbar-track {
+  background-color: #f4f6fc; /* Track color */
+}
+
+/* Styling for the card component in the gallery */
+figure.snip1321 {
+  position: relative; /* Allow positioning of child elements */
+  overflow: hidden; /* Hide content that overflows */
+  margin: 10px; /* Margin around each card */
+  min-width: 230px; /* Minimum width for each card */
+  max-width: 315px; /* Maximum width for each card */
+  width: 100%; /* Make the card responsive */
+  color: #000000; /* Text color */
+  text-align: center; /* Center the text inside the card */
+  -webkit-perspective: 50em; /* Perspective for 3D effect */
+  perspective: 50em; /* Perspective for 3D effect */
+}
+
+/* Box-sizing and transition for all child elements of snip1321 figure */
+figure.snip1321 * {
+  -webkit-box-sizing: border-box; /* Box-sizing for cross-browser support */
+  box-sizing: border-box; /* Box-sizing for element sizing */
+  -webkit-transition: all 0.2s ease-out; /* Transition for all elements */
+  transition: all 0.2s ease-out; /* Transition for all elements */
+}
+
+/* Image styling inside the snip1321 figure */
+figure.snip1321 img {
+  max-width: 100%; /* Make the image responsive */
+  vertical-align: top; /* Align the image to the top */
+}
+
+/* Caption styling inside the snip1321 figure */
+figure.snip1321 figcaption {
+  top: 50%; /* Center the caption vertically */
+  left: 20px; /* Position the caption 20px from the left */
+  right: 20px; /* Position the caption 20px from the right */
+  position: absolute; /* Position caption absolutely */
+  opacity: 0; /* Initially hide the caption */
+  z-index: 1; /* Keep the caption on top of other elements */
+}
+
+/* Styling for h2 and h4 inside snip1321 */
+figure.snip1321 h2,
+figure.snip1321 h4 {
+  margin: 0; /* Remove margin around headings */
+}
+
+/* Styling for h2 in snip1321 */
+figure.snip1321 h2 {
+  font-weight: 600; /* Bold font for h2 */
+}
+
+/* Styling for h4 in snip1321 */
+figure.snip1321 h4 {
+  font-weight: 400; /* Regular font weight for h4 */
+  text-transform: uppercase; /* Make the text uppercase */
+}
+
+/* Icon styling in snip1321 */
+figure.snip1321 i {
+  font-size: 32px; /* Set font size for icons */
+}
+
+/* After pseudo-element for the snip1321 figure (background effect) */
+figure.snip1321:after {
+  background-color: #ffffff; /* White background */
+  position: absolute; /* Position absolutely */
+  content: ""; /* Empty content */
+  display: block; /* Make it a block element */
+  top: 20px; /* Position from the top */
+  left: 20px; /* Position from the left */
+  right: 20px; /* Position from the right */
+  bottom: 20px; /* Position from the bottom */
+  -webkit-transition: all 0.4s ease-in-out; /* Smooth transition for the effect */
+  transition: all 0.4s ease-in-out; /* Smooth transition for the effect */
+  -webkit-transform: rotateX(-90deg); /* Initially rotate the background */
+  transform: rotateX(-90deg); /* Initially rotate the background */
+  -webkit-transform-origin: 50% 50%; /* Set the transform origin to the center */
+  transform-origin: 50% 50%; /* Set the transform origin to the center */
+  opacity: 0; /* Initially hide the background */
+}
+
+/* Link inside the snip1321 figure */
+figure.snip1321 a {
+  left: 0; /* Position link at the left */
+  right: 0; /* Position link at the right */
+  top: 0; /* Position link at the top */
+  bottom: 0; /* Position link at the bottom */
+  position: absolute; /* Position the link absolutely */
+  z-index: 1; /* Keep the link on top */
+}
+
+/* Hover effect for the caption in snip1321 */
+figure.snip1321:hover figcaption,
+figure.snip1321.hover figcaption {
+  -webkit-transform: translateY(-50%); /* Move caption upwards */
+  transform: translateY(-50%); /* Move caption upwards */
+  opacity: 1; /* Make the caption visible */
+  -webkit-transition-delay: 0.2s; /* Delay the transition for the caption */
+  transition-delay: 0.2s; /* Delay the transition for the caption */
+}
+
+/* Hover effect for the after pseudo-element */
+figure.snip1321:hover:after,
+figure.snip1321.hover:after {
+  -webkit-transform: rotateX(0); /* Rotate the background to 0 degrees */
+  transform: rotateX(0); /* Rotate the background to 0 degrees */
+  opacity: 0.9; /* Make the background visible */
+}
+
+/* Styling for the container */
+.container{
+  max-width: 1170px; /* Set maximum width for the container */
+  margin:auto; /* Center the container */
+}
+
+/* Styling for the row inside the container */
+.row{
+  display: flex; /* Use flexbox for row layout */
+  flex-wrap: wrap; /* Allow wrapping of items */
+}
+
+/* Styling for unordered lists */
+ul{
+  list-style: none; /* Remove default list bullets */
+}
+
+/* Styling for the footer */
+.footer{
+  background-color: #24262b; /* Dark background for the footer */
+  padding: 70px 0; /* Vertical padding for footer */
+}
+
+/* Styling for each column inside the footer */
+.footer-col{
+  width: 22%; /* Set width for footer columns */
+  padding: 0 15px; /* Padding inside footer columns */
+}
+
+/* Styling for h4 inside footer columns */
+.footer-col h4{
+  font-size: 18px; /* Font size for heading */
+  color: #ffffff; /* White text color */
+  text-transform: capitalize; /* Capitalize heading text */
+  margin-bottom: 35px; /* Margin below heading */
+  font-weight: 500; /* Medium font weight */
+  position: relative; /* Allow positioning of pseudo-element */
+}
+
+/* Underline effect for footer column headings */
+.footer-col h4::before{
+  content: ''; /* Empty content for the pseudo-element */
+  position: absolute; /* Absolute positioning */
+  left:0; /* Position left */
+  bottom: -10px; /* Position below the heading */
+  background-color: #e91e63; /* Pink underline color */
+  height: 2px; /* Height of the underline */
+  box-sizing: border-box; /* Include padding and border in width/height calculations */
+  width: 50px; /* Set width of the underline */
+}
+
+/* Styling for list items inside footer columns */
+.footer-col ul li:not(:last-child){
+  margin-bottom: 10px; /* Add margin between list items */
+}
+
+/* Styling for links inside the footer */
+.footer-col ul li a{
+  font-size: 16px; /* Font size for links */
+  text-transform: capitalize; /* Capitalize link text */
+  color: #ffffff; /* White text color */
+  text-decoration: none; /* Remove underline from links */
+  font-weight: 300; /* Lighter font weight */
+  color: #bbbbbb; /* Light gray color for links */
+  display: block; /* Make links block-level */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for links inside the footer */
+.footer-col ul li a:hover{
+  color: #ffffff; /* White text color on hover */
+  padding-left: 8px; /* Add padding on the left for hover effect */
+}
+
+/* Styling for social links in the footer */
+.footer-col .social-links a{
+  display: inline-block; /* Display as inline-block for alignment */
+  height: 40px; /* Set height of the social links */
+  width: 40px; /* Set width of the social links */
+  background-color: rgba(255,255,255,0.2); /* Semi-transparent background */
+  margin:0 10px 10px 0; /* Margin between social links */
+  text-align: center; /* Center the icon in the circle */
+  line-height: 40px; /* Center the icon vertically */
+  border-radius: 50%; /* Make the social link round */
+  color: #ffffff; /* White icon color */
+  transition: all 0.5s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for social links */
+.footer-col .social-links a:hover{
+  color: #24262b; /* Change icon color on hover */
+  background-color: #ffffff; /* White background on hover */
+}
+
+/* Responsive styles for small screens */
+@media(max-width: 767px){
+  .footer-col{
+      width: 50%; /* Make columns take 50% width on smaller screens */
+      margin-bottom: 30px; /* Add margin below columns */
+  }
+}
+
+/* Responsive styles for even smaller screens */
+@media(max-width: 574px){
+  .footer-col{
+      width: 100%; /* Make columns take 100% width on very small screens */
+  }
+}

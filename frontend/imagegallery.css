@@ -1,0 +1,98 @@
+/* Styles for the swiper container */
+.swiper-container {
+  width: 100%; /* Make the swiper take full width of its parent container */
+  height: 90%; /* Set the height to 90% of the parent container */
+}
+
+/* Styles for individual swiper slides */
+.swiper-slide {
+  text-align: center; /* Center the content inside each slide */
+  background: #f4f6fc; /* Set a light background color */
+  display: flex; /* Use flexbox layout for alignment */
+  justify-content: center; /* Horizontally center content */
+  align-items: center; /* Vertically center content */
+}
+
+/* General container styling for the gallery */
+.container-general {
+  padding: 55px 0; /* Add vertical padding */
+  margin: 0 auto; /* Center the container horizontally */
+  width: 800px; /* Set a fixed width for the container */
+}
+
+/* Wrap for the gallery items, set up flexbox for row layout */
+.container-general .gallery-wrap {
+  display: flex; /* Use flexbox for gallery layout */
+  flex-direction: row; /* Arrange items in a row */
+  width: 100%; /* Make the gallery wrap take the full width */
+  height: 70vh; /* Set the height to 70% of the viewport height */
+}
+
+/* Styling for each item (gallery element) */
+.container-general .gallery-wrap .item {
+  position: relative; /* Make item position relative for overlay */
+  flex: 1; /* Distribute space equally among items */
+  height: 100%; /* Make item take full height of the container */
+  background-position: center; /* Center the background image */
+  background-size: cover; /* Make background image cover the item */
+  background-repeat: no-repeat; /* Prevent background image repetition */
+  transition: all 0.8s ease; /* Smooth transition for any changes */
+}
+
+/* Hover effect on each item */
+.container-general .gallery-wrap .item:hover {
+  flex: 7; /* Expand the item on hover */
+}
+
+/* Hover effect for the overlay (shown when item is hovered) */
+.container-general .gallery-wrap .item:hover .overlay {
+  opacity: 1; /* Make the overlay visible */
+  transform: translateY(0); /* Reset the translation to its normal position */
+}
+
+/* Default styling for the overlay */
+.container-general .gallery-wrap .item .overlay {
+  position: absolute; /* Position overlay absolutely within the item */
+  top: 0; /* Align the overlay to the top */
+  left: 0; /* Align the overlay to the left */
+  width: 100%; /* Make overlay take the full width */
+  height: 100%; /* Make overlay take the full height */
+  background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+  color: #fff; /* White text color */
+  display: flex; /* Use flexbox for centering text */
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  font-family: "Arial", sans-serif; /* Set font family for text */
+  font-size: 24px; /* Set font size */
+  text-align: center; /* Center text alignment */
+  opacity: 0; /* Make overlay initially invisible */
+  transform: translateY(20px); /* Move overlay slightly down initially */
+  transition: all 0.5s ease; /* Smooth transition for opacity and position */
+  pointer-events: none; /* Disable interaction with the overlay */
+}
+
+/* Set background images for specific gallery items */
+.wrap-effect-1 .item:first-of-type {
+  background-image: url("images/image1.webp"); /* Set background for first item */
+}
+.wrap-effect-1 .item:nth-of-type(2) {
+  background-image: url("images/image2.jpeg"); /* Set background for second item */
+}
+.wrap-effect-1 .item:nth-of-type(3) {
+  background-image: url("images/image3.jpeg"); /* Set background for third item */
+}
+.wrap-effect-1 .item:nth-of-type(4) {
+  background-image: url("images/image4.jpeg"); /* Set background for fourth item */
+}
+.wrap-effect-1 .item:last-of-type {
+  background-image: url("images/image5.webp"); /* Set background for last item */
+}
+
+/* Hide the caption for each item by default */
+.wrap-effect-1 .item::before {
+  content: attr(data-caption); /* Use data-caption as content */
+  display: none; /* Hide the caption by default */
+}
+
+/* Comment about source map (used for debugging purposes) */
+/*# sourceMappingURL=imagegallery.css.map */
