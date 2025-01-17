@@ -1,0 +1,101 @@
+/* Swiper container styling */
+.swiper-container {
+  width: 100%; /* Make the swiper take the full width of its parent container */
+  height: 90%; /* Set the height to 90% of the parent container */
+}
+
+/* Individual swiper slide styling */
+.swiper-slide {
+  text-align: center; /* Center the content inside each slide */
+  background: #fff; /* Set a white background color */
+  display: flex; /* Use flexbox layout for alignment */
+  justify-content: center; /* Horizontally center content */
+  align-items: center; /* Vertically center content */
+}
+
+/* Image Accordions General Styling */
+.container-general {
+  padding: 55px 0; /* Add vertical padding */
+  margin: 0 auto; /* Center the container horizontally */
+  width: 800px; /* Set a fixed width for the container */
+  
+  /* Gallery wrap styling */
+  .gallery-wrap {
+    display: flex; /* Use flexbox for gallery layout */
+    flex-direction: row; /* Arrange items in a row */
+    width: 100%; /* Make the gallery wrap take the full width */
+    height: 70vh; /* Set the height to 70% of the viewport height */
+    
+    /* Individual item styling inside the gallery */
+    .item {
+      position: relative; /* Make item position relative for overlay */
+      flex: 1; /* Distribute space equally among items */
+      height: 100%; /* Make item take full height of the container */
+      background-position: center; /* Center the background image */
+      background-size: cover; /* Make background image cover the item */
+      background-repeat: no-repeat; /* Prevent background image repetition */
+      transition: all 0.8s ease; /* Smooth transition for any changes */
+
+      /* Hover effect for gallery item */
+      &:hover {
+        flex: 7; /* Expand the item on hover */
+
+        /* Show text overlay on hover */
+        .overlay {
+          opacity: 1; /* Make overlay visible */
+          transform: translateY(0); /* Reset translation to normal position */
+        }
+      }
+
+      /* Overlay text styles (hidden by default) */
+      .overlay {
+        position: absolute; /* Position overlay absolutely within the item */
+        top: 0; /* Align the overlay to the top */
+        left: 0; /* Align the overlay to the left */
+        width: 100%; /* Make overlay take the full width */
+        height: 100%; /* Make overlay take the full height */
+        background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+        color: #fff; /* White text color */
+        display: flex; /* Use flexbox for centering text */
+        justify-content: center; /* Center text horizontally */
+        align-items: center; /* Center text vertically */
+        font-family: "Arial", sans-serif; /* Set font family for text */
+        font-size: 24px; /* Set font size */
+        text-align: center; /* Center text alignment */
+        opacity: 0; /* Make overlay initially invisible */
+        transform: translateY(20px); /* Move overlay slightly down initially */
+        transition: all 0.5s ease; /* Smooth transition for opacity and position */
+        pointer-events: none; /* Disable interaction with the overlay */
+      }
+    }
+  }
+}
+
+/* Image Accordions Effect 1 Styling */
+.wrap-effect-1 {
+  /* Individual item styling within the effect */
+  .item {
+    /* Background images for specific gallery items */
+    &:first-of-type {
+      background-image: url('images/image1.webp'); /* Set background for first item */
+    }
+    &:nth-of-type(2) {
+      background-image: url('images/image2.jpeg'); /* Set background for second item */
+    }
+    &:nth-of-type(3) {
+      background-image: url('images/image3.jpeg'); /* Set background for third item */
+    }
+    &:nth-of-type(4) {
+      background-image: url('images/image4.jpeg'); /* Set background for fourth item */
+    }
+    &:last-of-type {
+      background-image: url('images/image5.webp'); /* Set background for last item */
+    }
+
+    /* Inject overlay content dynamically using CSS */
+    &::before {
+      content: attr(data-caption); /* Use data-caption as content for the overlay */
+      display: none; /* Hide the caption by default */
+    }
+  }
+}
